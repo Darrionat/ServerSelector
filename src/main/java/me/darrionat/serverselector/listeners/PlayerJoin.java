@@ -22,6 +22,6 @@ public class PlayerJoin implements Listener {
     public void onJoin(PlayerJoinEvent e) {
         Player p = e.getPlayer();
         if (!configRepo.giveSelectorOnJoin()) return;
-
+        // TODO handle players joining
     }
 }

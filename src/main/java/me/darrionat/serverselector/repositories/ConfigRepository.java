@@ -13,7 +13,7 @@ import java.util.List;
 
 public class ConfigRepository implements IConfigRepository {
     private static final XMaterial DEFAULT_SELECTOR = XMaterial.COMPASS;
-    private static final String MATERIAL_DNE = "The selector material in the config.yml does not exist in Minecraft. Setting to default value " + DEFAULT_SELECTOR;
+    private static final String MATERIAL_DNE = "The selector material in the " + CONFIG + " does not exist in Minecraft. Setting to default value " + DEFAULT_SELECTOR;
 
     private final ServerSelectorPlugin plugin;
     private final Config config;
@@ -33,7 +33,7 @@ public class ConfigRepository implements IConfigRepository {
     }
 
     public String getSelectorName() {
-        return file.getString("selector.name");
+        return Utils.chat(file.getString("selector.name"));
     }
 
     public XMaterial getSelectorMaterial() {

@@ -10,9 +10,10 @@ public class ServerSelectorPlugin extends Plugin {
     }
 
     public void onDisable() {
-
+        // TODO unregister outgoing bungee channel in IBungeeService
     }
 
+    // TODO make an error handler, mainly for commands
     public ErrorHandler getErrorHandler() {
         return null;
     }

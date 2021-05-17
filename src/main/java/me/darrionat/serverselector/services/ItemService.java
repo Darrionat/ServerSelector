@@ -62,6 +62,7 @@ public class ItemService implements IItemService {
 
     public void removeSelectorDuplicates(Player p) {
         /**
+         * TODO implement
          * If the selector does not match #getSelector, remove all the time
          * If the player has more than one selector, remove all and then give a new one
          */
