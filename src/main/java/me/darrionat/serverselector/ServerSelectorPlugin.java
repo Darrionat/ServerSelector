@@ -34,11 +34,9 @@ public class ServerSelectorPlugin extends Plugin {
         bungeeService.setupChannel();
         registerCommands();
         registerListeners();
-        registerGui();
     }
 
     private void initFields() {
-        errors = new Errors(messageService);
         Bootstrapper bootstrapper = Bootstrapper.getBootstrapper();
         bootstrapper.init(this);
 
@@ -50,6 +48,10 @@ public class ServerSelectorPlugin extends Plugin {
         this.bungeeService = bootstrapper.getBungeeService();
         this.itemService = bootstrapper.getItemService();
         this.messageService = bootstrapper.getMessageService();
+
+        log("Registering GUI");
+        selectorUi = new SelectorUi(this, guiRepo, bungeeService);
+        errors = new Errors(messageService);
     }
 
     private void registerCommands() {
@@ -60,11 +62,6 @@ public class ServerSelectorPlugin extends Plugin {
         log("Registering listeners");
         new PlayerJoin(this, itemService, configRepo);
         new PlayerInteract(this, itemService);
-    }
-
-    private void registerGui() {
-        log("Registering GUI");
-        selectorUi = new SelectorUi(this, guiRepo, bungeeService);
     }
 
     /**

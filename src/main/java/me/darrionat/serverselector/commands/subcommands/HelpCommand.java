@@ -7,18 +7,20 @@ import me.darrionat.serverselector.ServerSelectorPlugin;
 import me.darrionat.serverselector.interfaces.IMessageService;
 import org.bukkit.command.CommandSender;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HelpCommand extends SubCommand {
     private final IMessageService messageService;
 
-    private final List<String> helpMessages;
+    private final List<String> helpMessages = new ArrayList<String>();
     private final int helpPagesAmt;
 
     public HelpCommand(BaseCommand parentCommand, ServerSelectorPlugin plugin, IMessageService messageService) {
         super(parentCommand, plugin);
         this.messageService = messageService;
-        helpMessages = messageService.getHelpMessages();
+        for (SubCommand subCommand : parentCommand.getSubCommands())
+            helpMessages.add(messageService.getHelpMessage(subCommand));
         helpPagesAmt = (helpMessages.size() + 5 - 1) / 5;
     }
 
@@ -31,7 +33,7 @@ public class HelpCommand extends SubCommand {
     }
 
     public boolean onlyPlayers() {
-        return true;
+        return false;
     }
 
     protected void runCommand(CommandSender sender, String[] args) {

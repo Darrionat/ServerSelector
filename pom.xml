@@ -6,7 +6,7 @@
 
     <groupId>me.darrionat</groupId>
     <artifactId>ServerSelector</artifactId>
-    <version>1.0 BETA</version>
+    <version>1.0.1</version>
     <repositories>
         <repository>
             <id>jitpack.io</id>
@@ -25,7 +25,7 @@
         <dependency>
             <groupId>com.github.darrionat</groupId>
             <artifactId>PluginLib</artifactId>
-            <version>1.1.1</version>
+            <version>1.1.2</version>
         </dependency>
         <!-- Spigot -->
         <dependency>
@@ -66,4 +66,8 @@
             </plugin>
         </plugins>
     </build>
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
 </project>

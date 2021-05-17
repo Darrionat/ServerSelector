@@ -90,7 +90,7 @@ public class GuiRepository implements IGuiRepository {
 
     public List<String> getItemLore(String serverName) {
         List<String> lore = new ArrayList<String>();
-        for (String line : file.getStringList(serverName + "lore.lines"))
+        for (String line : file.getStringList(serverName + ".lore.lines"))
             lore.add(Utils.chat(line));
         return lore;
     }

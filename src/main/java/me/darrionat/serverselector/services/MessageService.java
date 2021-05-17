@@ -9,8 +9,6 @@ import me.darrionat.serverselector.interfaces.IMessageService;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
-
 public class MessageService implements IMessageService {
     private final ServerSelectorPlugin plugin;
     private final IMessageRepository messageRepo;
@@ -33,8 +31,11 @@ public class MessageService implements IMessageService {
         sendMessage(sender, messageRepo.getReloadMessage());
     }
 
-    public List<String> getHelpMessages() {
-        return messageRepo.getHelpMessages();
+    public String getHelpMessage(SubCommand subCommand) {
+        String msg = messageRepo.getHelpMessage(subCommand);
+        msg = msg.replace("%base%", subCommand.getParentCommand().getCommandLabel());
+        msg = msg.replace("%sub%", subCommand.getSubCommand());
+        return msg;
     }
 
     public void sendHelpHeader(CommandSender sender, int page, int helpPagesAmt) {
@@ -53,7 +54,7 @@ public class MessageService implements IMessageService {
     }
 
     public void sendNotEnoughArgsMessage(SubCommand subCommand, CommandSender sender) {
-        sendMessage(sender, messageRepo.getHelpMessage(subCommand));
+        sendMessage(sender, getHelpMessage(subCommand));
     }
 
     private void sendMessage(CommandSender sender, String msg) {

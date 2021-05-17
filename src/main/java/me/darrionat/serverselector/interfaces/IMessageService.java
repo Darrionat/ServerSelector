@@ -5,8 +5,6 @@ import me.darrionat.pluginlib.commands.SubCommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-import java.util.List;
-
 public interface IMessageService extends Service {
     /**
      * Sent if no arguments are provided for the command.
@@ -32,11 +30,12 @@ public interface IMessageService extends Service {
     void sendReloadMessage(CommandSender sender);
 
     /**
-     * Gets all of the help messages in the config.
+     * Gets a help messages in the config.
      *
-     * @return a list of command help messages.
+     * @param subCommand the subcommand.
+     * @return a command help message.
      */
-    List<String> getHelpMessages();
+    String getHelpMessage(SubCommand subCommand);
 
     /**
      * The header to the help command's messages.
