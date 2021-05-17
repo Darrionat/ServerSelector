@@ -6,7 +6,7 @@
 
     <groupId>me.darrionat</groupId>
     <artifactId>ServerSelector</artifactId>
-    <version>0.3 BETA</version>
+    <version>1.0 BETA</version>
     <repositories>
         <repository>
             <id>jitpack.io</id>

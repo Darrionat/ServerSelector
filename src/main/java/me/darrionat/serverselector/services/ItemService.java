@@ -9,8 +9,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 public class ItemService implements IItemService {
-    private IConfigRepository configRepo;
     private final static String KEY = "ServerSelector";
+
+    private final IConfigRepository configRepo;
 
     public ItemService(IConfigRepository configRepo) {
         this.configRepo = configRepo;
@@ -57,6 +58,7 @@ public class ItemService implements IItemService {
         meta.setDisplayName(configRepo.getSelectorName());
         meta.setLore(configRepo.getSelectorLore());
         selector.setItemMeta(meta);
+        selector = setTag(selector);
         return selector;
     }
 }

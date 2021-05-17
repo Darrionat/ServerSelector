@@ -4,6 +4,7 @@ import me.darrionat.pluginlib.Plugin;
 import me.darrionat.pluginlib.guis.Gui;
 import me.darrionat.serverselector.interfaces.IBungeeService;
 import me.darrionat.serverselector.interfaces.IGuiRepository;
+import me.darrionat.shaded.xseries.XMaterial;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;
 
@@ -36,11 +37,19 @@ public class SelectorUi extends Gui {
     }
 
     protected void getContents(Player p) {
+        if (guiRepo.fillerItemEnabled())
+            fillerItem();
         for (String server : guiRepo.getItems()) {
             List<String> lore = guiRepo.loreEnabled(server) ? guiRepo.getItemLore(server) : null;
             createItem(guiRepo.getItemMaterial(server), 1, guiRepo.getItemSlot(server),
                     guiRepo.getItemDisplayName(server), lore);
         }
+    }
+
+    private void fillerItem() {
+        XMaterial fillItem = guiRepo.getFillerItem();
+        for (int i = 0; i < size; i++)
+            createItem(fillItem, 1, i, " ");
     }
 
     public void clicked(Player p, int slot, ClickType clickType) {

@@ -1,0 +1,12 @@
+baseMessage:
+  - '&7[&6%plugin%&7] &6%version% &7Author: &6Darrionat'
+  - '  &7Type &6/%baseCommand% help &7for more information'
+reload: '&aSuccessfully &7reloaded all configuration files'
+helpHeader: '&6Help Page &f%page%&7/&f%pageAmount%'
+help:
+  help: '&6/%base% %sub% [page] &7- Detailed info about commands'
+  reload: '&6/%base% %sub% &7- Reloads all configs'
+  open: '&6/%base% %sub% &7- Open the server selector'
+errors:
+  noPermission: '&cYou do not have the permission &7%permission%'
+  onlyPlayers: '&cThis command is for players only'

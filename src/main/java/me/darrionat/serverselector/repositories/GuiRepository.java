@@ -9,6 +9,7 @@ import me.darrionat.shaded.xseries.XMaterial;
 import org.bukkit.configuration.file.FileConfiguration;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class GuiRepository implements IGuiRepository {
@@ -26,7 +27,6 @@ public class GuiRepository implements IGuiRepository {
         this.plugin = plugin;
         ConfigBuilder builder = new ConfigBuilder(plugin, SERVERS_GUI);
         builder.useBuiltInFile();
-        builder.updateConfig();
         config = builder.build();
         init();
     }
