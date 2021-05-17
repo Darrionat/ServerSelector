@@ -24,7 +24,8 @@ public interface IItemService extends Service {
      * Gets the slot that the player's server selector is located in.
      *
      * @param p the player.
-     * @return returns the slot of the server selector in the player's inventory.
+     * @return returns the slot of the server selector in the player's inventory; {@code -1} if the player does not have
+     * a server selector item.
      */
     int getSelectorSlot(Player p);
 
@@ -57,12 +58,4 @@ public interface IItemService extends Service {
      * @return gets the server selector as an item.
      */
     ItemStack getSelector();
-
-    /**
-     * Removes all other selectors that are either duplicates of the current selector or do not have the same item
-     * data.
-     *
-     * @param p the player for which to check duplicates.
-     */
-    void removeSelectorDuplicates(Player p);
 }

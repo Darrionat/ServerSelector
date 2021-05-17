@@ -5,5 +5,4 @@ selector:
     - '&eSelect a server to go to'
     - '&7Right-Click to open up the server selection menu'
 inventory:
-  removeDuplicates: true
   giveOnJoin: true

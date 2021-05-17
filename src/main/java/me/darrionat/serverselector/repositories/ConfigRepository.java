@@ -53,10 +53,6 @@ public class ConfigRepository implements IConfigRepository {
         return lore;
     }
 
-    public boolean removeDuplicates() {
-        return file.getBoolean("inventory.removeDuplicates");
-    }
-
     public boolean giveSelectorOnJoin() {
         return file.getBoolean("inventory.giveOnJoin");
     }
