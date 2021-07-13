@@ -38,9 +38,11 @@ public class PlayerJoin implements Listener {
 
         // Handle updating the selector in the player's inventory if it has changed in the config
         ListIterator<ItemStack> iterator = p.getInventory().iterator();
-        while (iterator.hasNext())
-            if (itemService.isServerSelector(iterator.next()))
-                iterator.remove();
+        while (iterator.hasNext()) {
+            final ItemStack item = iterator.next();
+            if (itemService.isServerSelector(item))
+                p.getInventory().removeItem(item);
+        }
         itemService.giveSelectorToPlayer(p);
     }
 }
