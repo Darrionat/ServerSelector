@@ -18,6 +18,7 @@ public class ItemService implements IItemService {
     }
 
     public boolean isServerSelector(ItemStack item) {
+        if (item == null) return false;
         return NBTEditor.contains(item, KEY);
     }
 
